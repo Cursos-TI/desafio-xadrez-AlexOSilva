@@ -11,6 +11,7 @@ printf("**Escolha qual peça queira jogar!!**\n");
 printf("1.Torre\n");
 printf("2.Bispo\n");
 printf("3.Rainha\n");
+printf("4.Cavalo\n");
 scanf(" %d" , &escolha);
 
 
@@ -50,6 +51,21 @@ do {
 
 
 break;
+
+//Cavalo
+case 4:
+printf("Cavalo mover duas casas para cima e uma casa para a direita \n");
+for(i=0;i<=2; i++) {              
+    printf("Cima\n"); 
+    while(i==1){
+        printf("Direita\n");
+        i++;
+    }
+
+}
+
+break;
+
 default :
 printf("Opção invalida , tente novamente!!\n");
 
