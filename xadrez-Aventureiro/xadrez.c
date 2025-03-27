@@ -1,88 +1,81 @@
 #include <stdio.h>
-int main(){
 
     //Desafio de Xadrez - MateCheck
-int i = 0;
-int escolha;
-
-//Menu de escolha para interação com o usuario.
-//Torre
-printf("**Escolha qual peça queira jogar!!**\n");
-printf("1.Torre\n");
-printf("2.Bispo\n");
-printf("3.Rainha\n");
-printf("4.Cavalo\n");
-scanf(" %d" , &escolha);
-
-
-switch(escolha) {
-
-case 1 :
-
-printf("Torre 5 casas a direita\n");
-    for(int i = 0; i< 5 ; i++){
-        printf("Direita \n");  // Imprime a direção do movimento }
-     }
-
-
-break;
-
-//Bispo
-case 2 :
-printf("Bispo 5 casas para Cima Direita\n");
-while(i<5) {
     
-    printf("Cima , Direita\n"); // Imprime a direção do movimento 
-       
-    i ++ ;
+    
+    // Função recursiva para Torre
+    void torre(int casas) {
+        if (casas > 0) {
+            printf("Direita\n");
+            torre(casas - 1);
+        }
+    }
+    
+        
+     // Função recursiva para  Bispo
+void bispo(int casas) {
+    if (casas > 0) {
+        printf("Cima e Direita\n");
+        bispo(casas -1);
+    }
 }
-break;
 
-//Rainha
-case 3:
-printf("Rainha 8 casas para a esquerda \n");
-do {
-   printf("Esquerda\n"); // Imprime a direção do movimento 
-       
+// Função recursiva Rainha
+void rainha(int casas) {
+    if (casas > 0) {
+        printf("Esquerda\n");
+        rainha(casas - 1);
+    }
+}
 
-  i++;
-
-}while(i < 8);
-
-
-break;
-
-//Cavalo
-case 4:
-printf("Cavalo mover duas casas para cima e uma casa para a direita \n");
-for(i=0;i<=2; i++) {              
-    printf("Cima\n"); 
-    while(i==1){
+// Função para  Cavalo
+void cavalo() {
+    int i, j;
+    for (i = 0; i < 2; i++) {
+        printf("Cima\n");
+    }
+    for (j = 0; j < 1; j++) {
         printf("Direita\n");
-        i++;
+    }
+}
+
+
+int main() {
+    int escolha;
+
+    printf("**Escolha qual peça queira jogar!!**\n");
+    printf("1. Torre\n");
+    printf("2. Bispo\n");
+    printf("3. Rainha\n");
+    printf("4. Cavalo\n");
+
+    scanf("%d", &escolha);
+
+    switch (escolha) {
+        case 1:
+            torre(5);
+            break;
+        case 2:
+            bispo(5);
+            break;
+
+       
+         case 3:
+            rainha(8);
+            break;
+        case 4:
+            cavalo(3);
+            break;
+       
+            default:
+            printf("Opção inválida, tente novamente\n");
+            break;
     }
 
+    return 0;
 }
-
-break;
-
-default :
-printf("Opção invalida , tente novamente!!\n");
-
-}
-
-return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+     
+        
+        
+        
+   
